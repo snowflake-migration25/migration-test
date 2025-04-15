@@ -10,23 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: pip install snowflake-connector-python
+      - name: Install dependencies
+        run: pip install snowflake-connector-python
 
-    - name: Run Migration Script
-      env:
-        SF_PROD_ACCOUNT: ${{ secrets.SF_PROD_ACCOUNT }}
-        SF_PROD_USER: ${{ secrets.SF_PROD_USER }}
-        SF_PROD_PASSWORD: ${{ secrets.SF_PROD_PASSWORD }}
-        SF_PROD_WAREHOUSE: ${{ secrets.SF_PROD_WAREHOUSE }}
-        SF_PROD_DATABASE: ${{ secrets.SF_PROD_DATABASE }}
-        SF_PROD_SCHEMA: ${{ secrets.SF_PROD_SCHEMA }}
-      run: tester_15_4.py
+      - name: Run Migration Script
+        env:
+          SF_PROD_ACCOUNT: ${{ secrets.SF_PROD_ACCOUNT }}
+          SF_PROD_USER: ${{ secrets.SF_PROD_USER }}
+          SF_PROD_PASSWORD: ${{ secrets.SF_PROD_PASSWORD }}
+          SF_PROD_WAREHOUSE: ${{ secrets.SF_PROD_WAREHOUSE }}
+          SF_PROD_DATABASE: ${{ secrets.SF_PROD_DATABASE }}
+          SF_PROD_SCHEMA: ${{ secrets.SF_PROD_SCHEMA }}
+        run: python tester_15_4.py
