@@ -42,7 +42,7 @@ def execute_sql_script(conn, sql_script):
 
 if __name__ == "__main__":
     conn = get_snowflake_connection()
-    sql = read_sql_file("C:/Users/manivannan.m/Downloads/test.sql")
+    sql = read_sql_file("test.sql")
     execute_sql_script(conn, sql)
     conn.close()
 
